@@ -48,5 +48,17 @@ function detectPersonalLevel() {
 }
 
 detectPersonalLevel()
+function showMyDB(hidden) {
+   if (!hidden) {
+      console.log(personalMovieDB)
+   }
+}
+showMyDB(personalMovieDB.privat)
 
-console.log(personalMovieDB)
+function writeYourGeneres() {
+   for (let i = 1; i <= 3; i++) {
+      personalMovieDB.genres[i - 1] = prompt(`Your favorite gener for nomber ${i}`);
+   }
+}
+
+writeYourGeneres()
