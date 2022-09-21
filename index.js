@@ -42,25 +42,36 @@ const personalMovieDB = {
          console.log(personalMovieDB)
       }
    },
-   toggleVisibleMyDB: function(){
-      if(personalMovieDB.privat){
+   toggleVisibleMyDB: function () {
+      if (personalMovieDB.privat) {
          personalMovieDB.privat = false;
       }
-      else{
+      else {
          personalMovieDB.privat = true;
       }
    },
-   writeYourGeneres: function () {
-      for (let i = 1; i <= 3; i++) {
-      let genre = prompt(`Your favorite gener for nomber ${i}`);
-      if(genre === ''|| genre == null){
-         console.log("U writed bad date");
-         i--;
-      }else{
-         personalMovieDB.genres.forEach((item, index )=>{
-            console.log(`love gener ${index + 1} - it's ${item}`);
-         })
+   writeYourGenres: function () {
+      for (let i = 1; i < 2; i++) {
+         let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+
+         if (genre === '' || genre == null) {
+            console.log('Вы ввели некорректные данные или не ввели их вовсе');
+            i--;
+         } else {
+            personalMovieDB.genres[i - 1] = genre;
+         }
+         // Альтернативный вариант из урока
+         // let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase();
+         // if (genres === '' || genres == null) {
+         //     console.log('Вы ввели некорректные данные или не ввели их вовсе');
+         //     i--;
+         // } else {
+         //     personalMovieDB.genres = genres.split(', ');
+         //     personalMovieDB.genres.sort();
+         // } 
       }
-      }
+      personalMovieDB.genres.forEach((item, i) => {
+         console.log(`Любимый жанр ${i + 1} - это ${item}`);
+      });
    }
 };
